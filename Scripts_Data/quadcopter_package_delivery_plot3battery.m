@@ -22,10 +22,10 @@ clf(h2_quadcopter_package_delivery)
 temp_colororder = get(gca,'defaultAxesColorOrder');
 
 % Get simulation results
-simlog_t       = simlog_quadcopter_package_delivery.Quadcopter.Electrical.Battery.i.series.time;
+simlog_t       = simlog_quadcopter_package_delivery.BabyCrane.Electrical.Battery.i.series.time;
 simlog_battSOC = logsout_quadcopter_package_delivery.get('Quadcopter').Values.Motor.Battery.SOC.Data;
 
-simlog_batti   = simlog_quadcopter_package_delivery.Quadcopter.Electrical.Battery.i.series.values('A');
+simlog_batti   = simlog_quadcopter_package_delivery.BabyCrane.Electrical.Battery.i.series.values('A');
 simlog_mot1i   = logsout_quadcopter_package_delivery.get('Quadcopter').Values.Motor.Mot1.i.Data;
 simlog_mot2i   = logsout_quadcopter_package_delivery.get('Quadcopter').Values.Motor.Mot2.i.Data;
 simlog_mot3i   = logsout_quadcopter_package_delivery.get('Quadcopter').Values.Motor.Mot3.i.Data;
