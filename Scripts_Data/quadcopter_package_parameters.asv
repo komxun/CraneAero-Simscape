@@ -13,12 +13,9 @@ rho_pla = 1.25;
 drone_mass = 22;
 
 %% Package ground contact properties
-% pkgGrndStiff  = 1000;
-% pkgGrndDamp   = 300;
-% pkgGrndTransW = 1e-3;
-pkgGrndStiff  = 1e4;
-pkgGrndDamp   = 1e3;
-pkgGrndTransW = 1e-4;
+pkgGrndStiff  = 1000;
+pkgGrndDamp   = 300;
+pkgGrndTransW = 1e-3;
 
 %% Package parameters
 pkgSize = [2 1 1]*0.14;
@@ -71,44 +68,39 @@ Motor.Temperature_C = [125 NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN N
 % --- Position (much less aggressive) ---
 filtM_position = 0.005;
 % kp_position    = 1.5;     % was 5 — too aggressive for heavy drone
+% ki_position    = 0.01;    % keep very small
 % kd_position    = 1.0;     % was 2.5
 kp_position    = 0.8;     % was 1.5
 ki_position    = 0.01;
 kd_position    = 1.5;     % was 1.0
 filtD_position = 100;
 % pos2attitude   = 0.3;     % was 1.5 — CRITICAL: limits max tilt command
-pos2attitude   = 0.3;    % was 0.3
+pos2attitude   = 0.15;    % was 0.3
 
-% --- Attitude (more derivative damping) ---
-filtM_attitude = 0.01;
-kp_attitude    = 100;     % was 200 — reduce to prevent oscillation
-ki_attitude    = 3;       % was 8 — reduce to prevent windup
-kd_attitude    = 80;      % was 50 — INCREASE for more damping
-filtD_attitude = 250;
-limit_attitude = 200;     % was 300
 
 % --- Yaw ---
-filtM_yaw      = 0.01;
 filtD_yaw      = 100;
-kp_yaw         = 80;      % was 40
+kp_yaw         = 300;      % was 40
 ki_yaw         = 2;       % was 2
 kd_yaw         = 30;      % was 15
 limit_yaw      = 150;     % was 50
 
 % --- Altitude (RETUNED — ki was too high causing overshoot) ---
 filtM_altitude = 0.05;
-kp_altitude    = 0.5;    % ~17x original 0.27 (mass ratio)
-ki_altitude    = 2.5;    % ~17x original 0.07, conservative
-% ki_altitude    = 0.1;    % ~17x original 0.07, conservative
-kd_altitude    = 8.5;    % ~17x original 0.35
+% kp_altitude    = 1.2;    % ~17x original 0.27 (mass ratio)
+% ki_altitude    = 2.5;    % ~17x original 0.07, conservative
+% kd_altitude    = 8.0;    % ~17x original 0.35
+kp_altitude    = 0.2;    % ~17x original 0.27 (mass ratio)
+ki_altitude    = 1.5;    % ~17x original 0.07, conservative
+kd_altitude    = 18.0;    % ~17x original 0.35
 filtD_altitude = 100;
 limit_altitude = 150;    % N, max correction above/below hover
 
 % --- Motor speed controller ---
-kp_motor       = 0.05;
-ki_motor       = 0.001;
+kp_motor       = 0.01;
+ki_motor       = 0.003;
 kd_motor       = 0;
-filtD_motor    = 1000;
+filtD_motor    = 10000;
 filtSpd_motor  = 0.001;
 limit_motor    = 0.5;    % was 0.02 — far too restrictive!
 

@@ -24,13 +24,9 @@ switch (path_number)
         waypoints = [ ...
             -2    -2 0 2 5
             -2    -2 0 0 0
-            1.2   6 6 6 1.2];
-        % waypoints = [ ...
-        %     -2    -2 
-        %     -2    -2 
-        %     1.2   6 ];
+             2.5  6 6 6 0.5];
         max_speed = 1;
-        % max_speed = 0.3;
+        max_speed = 0.3;
         min_speed = 0.1;
         xApproach = [4 0.5];
         vApproach = 0.1;
