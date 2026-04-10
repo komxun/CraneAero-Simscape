@@ -98,8 +98,8 @@ limit_yaw      = 150;     % was 50
 % --- Altitude (RETUNED — ki was too high causing overshoot) ---
 filtM_altitude = 0.05;
 kp_altitude    = 0.5;    % ~17x original 0.27 (mass ratio)
-ki_altitude    = 2.5;    % ~17x original 0.07, conservative
-% ki_altitude    = 0.1;    % ~17x original 0.07, conservative
+% ki_altitude    = 2.5;    % ~17x original 0.07, conservative
+ki_altitude    = 0.1;    % ~17x original 0.07, conservative
 kd_altitude    = 8.5;    % ~17x original 0.35
 filtD_altitude = 100;
 limit_altitude = 150;    % N, max correction above/below hover
